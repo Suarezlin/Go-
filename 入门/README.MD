@@ -31,7 +31,7 @@ go build helloWorld.go
 
 ![](https://ws1.sinaimg.cn/large/006m1vi8ly1fpnx5nvf7bj31jw06yq45.jpg)
 
-Go 语言的代码通过包来组织。此程序开头就有 `package main` ，用来声明这个文件属于 `main` 包。
+Go 语言的代码通过包来组织。此程序开头就有 `package main` ，用来声明这个文件属于 `main` 包。
 
 `main` 包内可以有一个叫做 `main` 的函数，它是这个程序的入口。在编译时，一个 `main` 包内只能有一个 `main` 函数。否则无法编译。
 ## 命令行参数
