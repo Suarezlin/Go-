@@ -70,17 +70,17 @@ go run args.go a b c d e f g
 
 程序成功获取到了通过命令行输入的数据。
 
-这个程序使用了 Go 原因的 `for` 循环，Go 语言中只有 `for` 一种循环语句。之后又使用了 `range` 关键字，它可以返回切片或数组的 `index` 和对应的 `value`。由于 Go 语言定义变量必须要使用，这里我们有不需要切片的 `index`，所以我们使用 `_`  也就是`空标识符`来表示我们不需要 `index` 。
+这个程序使用了 Go 原因的 `for` 循环，Go 语言中只有 `for` 一种循环语句。之后又使用了 `range` 关键字，它可以返回切片或数组的 `index` 和对应的 `value`。由于 Go 语言定义变量必须要使用，这里我们有不需要切片的 `index`，所以我们使用 `_`  也就是`空标识符`来表示我们不需要 `index` 。
 
-在 Go 语言中变量的声明格式为：`var 变量名 变量类型` 。还有一种简写 `变量名 := 值` ，后一种声明方式只能用在函数内部。且声明变量且赋初值时，可以省略变量类型，由编译器自行推断。
+在 Go 语言中变量的声明格式为：`var 变量名 变量类型` 。还有一种简写 `变量名 := 值` ，后一种声明方式只能用在函数内部。且声明变量\且赋初值时，可以省略变量类型，由编译器自行推断。
 
-Go 语言在声明变量后会自动将变量的值初始化，数字会初始化为 0 ，字符串会初始化为空字符串。`map` 和 `slice` 会被初始化为 `nil`，要想定义一个没有内容的 `map` 或 `slice` 要使用 `make()` 来创建，如：
+Go 语言在声明变量后会自动将变量的值初始化，数字会初始化为 0 ，字符串会初始化为空字符串。`map` 和 `slice` 会被初始化为 `nil`，要想定义一个没有内容的 `map` 或 `slice` 要使用 `make()` 来创建，如：
 ```go
 var m = make(map[string]string)
 var s = make([]int, 0, 10) //第一个参数为创建一个 int slice，第二个参数为 slice 的长度为零表示空 slice，第三个参数为 slice 的物理内存大小，向 slice 中添加元素时，若此空间不够会自动分配更大的空间。
 ```
 ## 查找重复的行
-这是一个统计文件中各行重复的次数的 Go 语言程序。
+这是一个统计文件中各行重复的次数的 Go 语言程序。
 ```go
 package main
 
@@ -110,9 +110,9 @@ func main() {
 
 ![](https://ws1.sinaimg.cn/large/006m1vi8ly1fpnyfl12boj31jy0dotad.jpg)
 
-这里首先用了之前说的方式创建了一个 `Map` ，它的键的类型为 `string` ，值的类型为 `int` 。Go 语言中的 `Map` 与 `Java` 中的 `HashMap` ，`Python` 中的 `dict` 类似，使用 `hash` 实现。
+这里首先用了之前说的方式创建了一个 `Map` ，它的键的类型为 `string` ，值的类型为 `int` 。Go 语言中的 `Map` 与 `Java` 中的 `HashMap` ，`Python` 中的 `dict` 类似，使用 `hash` 实现。
 
-程序中使用了 `bufio` 包来处理输入。程序创建了一个 `Scanner` 来读取标准输入中的数据。每次调用 `input.Scan()` 时就会读入下一行，最后一行读取完后，会返回 `false` 结束循环。
+程序中使用了 `bufio` 包来处理输入。程序创建了一个 `Scanner` 来读取标准输入中的数据。每次调用 `input.Scan()` 时就会读入下一行，最后一行读取完后，会返回 `false` 结束循环。
 ```go
 package main
 
@@ -182,7 +182,7 @@ go run dup2.go test1.txt test2.txt
 
 ![](https://ws1.sinaimg.cn/large/006m1vi8ly1fpnz3mqg4aj31jw08awfu.jpg)
 
-第三种写法：
+第三种写法：
 ```go
 package main
 
@@ -216,11 +216,11 @@ func main() {
 }
 
 ```
-第三种写法使用了 `ioutil.ReadFile()` 函数，一次性将文件内容读入，再做计数处理。
+第三种写法使用了 `ioutil.ReadFile()` 函数，一次性将文件内容读入，再做计数处理。
 
 ![](https://ws1.sinaimg.cn/large/006m1vi8ly1fpnzfaxvy1j30iy01awej.jpg)
 
-可以看出 `ioutil.ReadFile()` 返回的文件内容为一个 `byte` 类型的切片。我们在使用时要先将其转为 `string` 类型。
+可以看出 `ioutil.ReadFile()` 返回的文件内容为一个 `byte` 类型的切片。我们在使用时要先将其转为 `string` 类型。
 
 ```go
 for _, lines := range strings.Split(string(data), "\n")
@@ -299,7 +299,7 @@ go run lissajous.go > out.gif
 
 ![](https://ws1.sinaimg.cn/large/006m1vi8ly1fpo03hage7g305l05lmzx.jpg)
 
-这个程序中定义了常量，在 Go 语言中常量使用关键字 `const` 来定义。
+这个程序中定义了常量，在 Go 语言中常量使用关键字 `const` 来定义。
 ## 获取 URL
 这里简单介绍了 Go 语言的 `http` 包。
 
@@ -346,7 +346,7 @@ go run fetch.go http://ip.cn
 
 ## 并发获取多个 URL
 
-Go 语言对并发编程的支持非常良好，我们来试一下并发获取多个 `url` 的内容。
+Go 语言对并发编程的支持非常良好，我们来试一下并发获取多个 `url` 的内容。
 
 ```go
 package main
